@@ -22,6 +22,7 @@ public class GameSetup : MonoBehaviour {
 	private bool isMultiplayer;
 
 	void Start () {
+		// Activate manual or AI controls for Player 2 based on selected preference
         bgMusic = this.GetComponent<AudioSource>();
 		isMultiplayer = (PlayerPrefs.GetInt("Multiplayer") != 0);
 		if (isMultiplayer) {
@@ -35,6 +36,7 @@ public class GameSetup : MonoBehaviour {
 			bgMusic.clip = spTrack;
 			bgMusic.Play();
 		}
+
 		// Move each wall to its edge location
 		topWall.size = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(Screen.width * 2f, 0f, 0f)).x, 1f);
 		topWall.offset = new Vector2(0f, mainCam.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f)).y + 0.5f);

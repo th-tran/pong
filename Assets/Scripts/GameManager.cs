@@ -11,12 +11,15 @@ public class GameManager : MonoBehaviour {
 	public Transform theBall;
 
 	void Start () {
+		// Initialize player scores to 0
 		playerScore01 = 0;
 		playerScore02 = 0;
+		// Get the ball
 		theBall = GameObject.FindGameObjectWithTag("Ball").transform;
 	}
 
 	public static void Score (string wallName) {
+		// Determine which player gets a point based on wall
 		if (wallName == "rightWall") {
 			playerScore01++;
 		} else {
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnGUI () {
+		// Draw the scoreboard
 		GUI.skin = theSkin;
 		GUI.Label(new Rect(Screen.width/2 - 150, 20, 100, 100), "" + playerScore01);
 		GUI.Label(new Rect(Screen.width/2 + 150, 20, 100, 100), "" + playerScore02);

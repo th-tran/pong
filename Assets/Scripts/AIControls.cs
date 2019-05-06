@@ -11,12 +11,13 @@ public class AIControls : MonoBehaviour {
     private Rigidbody2D rigidBody;
 	
     void Start () {
+		// Get ball and rigidbody of AI
 		theBall = GameObject.FindGameObjectWithTag("Ball").transform;
 		rigidBody = GetComponent<Rigidbody2D>();
 	}
 
-	// Update is called once per frame
 	void Update () {
+		// Determine movement of AI based on distance from the ball
 		float diff = theBall.position.y - transform.position.y;
 		if (diff > 0) {
 			rigidBody.velocity = Vector2.Lerp(rigidBody.velocity, Vector2.up * speed, lerpSpeed * Time.deltaTime);	
@@ -28,6 +29,7 @@ public class AIControls : MonoBehaviour {
 	}
 
 	public void ToggleState() {
+		// Turn AI on or off
 		GetComponent<AIControls>().enabled = !GetComponent<AIControls>().enabled;
 	}
 }

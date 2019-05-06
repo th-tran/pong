@@ -20,6 +20,7 @@ public class SettingsMenu : MonoBehaviour {
     private Resolution[] resolutions;
 
     void Start () {
+		// Initialize all settings based on player preferences
         musicSlider.value = PlayerPrefs.GetFloat("MMusic", 1f);
 		soundSlider.value = PlayerPrefs.GetFloat("MSound", 1f);
 		musicMixer.SetFloat("music", PlayerPrefs.GetFloat("MMusic"));

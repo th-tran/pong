@@ -16,8 +16,8 @@ public class PauseMenu : MonoBehaviour {
 		bgMusic = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioSource>();
 	}
 
-	// Update is called once per frame
 	void Update () {
+		// Pause (or resume) the game when escape, P, or enter key is pressed
 		if (Input.GetKeyDown(KeyCode.Escape) || 
 		    Input.GetKeyDown(KeyCode.P) ||
 			Input.GetKeyDown(KeyCode.Return)) {
@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void Resume () {
+		// Hide pause menu and restart time
         pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		bgMusic.Play();
@@ -37,6 +38,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	void Pause () {
+		// Bring up pause menu and freeze time
         pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		bgMusic.Pause();

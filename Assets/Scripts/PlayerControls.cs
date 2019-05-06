@@ -15,8 +15,8 @@ public class PlayerControls: MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody2D>();
 	}
 
-    // Update is called once per frame
     void Update() {
+        // Move up, down, or stop based on pressed keys
         if (Input.GetKey(moveUp)) {
             rigidBody.velocity = new Vector2(0, speed);
         } else if (Input.GetKey(moveDown)) {
