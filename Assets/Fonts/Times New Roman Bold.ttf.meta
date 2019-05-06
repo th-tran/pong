@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8caf0d302563b9341a7491a7038b8e09
+timeCreated: 1557185706
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Times New Roman Cyr
+  fontNames:
+  - Times New Roman Cyr
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 14df79d537c826347abab4b94fffe461, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

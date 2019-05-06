@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-	static int playerScore01;
-	static int playerScore02;
+	public static int playerScore01;
+	public static int playerScore02;
 
 	public GUISkin theSkin;
 
