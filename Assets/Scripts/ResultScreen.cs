@@ -14,6 +14,7 @@ public class ResultScreen : MonoBehaviour {
 	private bool isMultiplayer;
 	private bool winScoreReached;
 	private bool winMarginReached;
+	private bool player1Won;
 	
     void Start () {
 		isMultiplayer = (PlayerPrefs.GetInt("Multiplayer") != 0);
@@ -23,16 +24,17 @@ public class ResultScreen : MonoBehaviour {
 		winScoreReached = (GameManager.playerScore01 >= 11 || GameManager.playerScore02 >= 11) ? true : false;
 		winMarginReached = (Mathf.Abs(GameManager.playerScore01 - GameManager.playerScore02) >= 2 ? true : false);
 		if (winScoreReached && winMarginReached) {
+			player1Won = (GameManager.playerScore01 - GameManager.playerScore02) >= 2 ? true : false;
 			resultScreenUI.SetActive(true);
             Time.timeScale = 0f;
 			if (isMultiplayer) {
 				resultText.color = new Color32(52, 152, 219, 255);
-				if (GameManager.playerScore01 >= 11) {
+				if (GameManager.playerScore01 >= 11 && player1Won) {
 				    resultText.text = "Player 1 wins!";
 				} else {
 					resultText.text = "Player 2 wins!";
 				}
-			} else if (GameManager.playerScore01 >= 10) {
+			} else if (GameManager.playerScore01 >= 10 && player1Won) {
 				resultText.text = "YOU DEFEATED";
 				resultText.font = spFont;
 				resultText.color = new Color32(244, 208, 63, 255);
