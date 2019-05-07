@@ -12,17 +12,22 @@ public class ResultScreen : MonoBehaviour {
 	public Font spFont;
 	
 	private bool isMultiplayer;
+	private bool winScoreReached;
+	private bool winMarginReached;
 	
     void Start () {
 		isMultiplayer = (PlayerPrefs.GetInt("Multiplayer") != 0);
 	}
 
 	void Update () {
-		if (GameManager.playerScore01 >= 10 || GameManager.playerScore02 >= 10) {
+		winScoreReached = (GameManager.playerScore01 >= 11 || GameManager.playerScore02 >= 11) ? true : false;
+		winMarginReached = (Mathf.Abs(GameManager.playerScore01 - GameManager.playerScore02) >= 2 ? true : false);
+		if (winScoreReached && winMarginReached) {
 			resultScreenUI.SetActive(true);
-			Time.timeScale = 0f;
+            Time.timeScale = 0f;
 			if (isMultiplayer) {
-				if (GameManager.playerScore01 >= 10) {
+				resultText.color = new Color32(52, 152, 219, 255);
+				if (GameManager.playerScore01 >= 11) {
 				    resultText.text = "Player 1 wins!";
 				} else {
 					resultText.text = "Player 2 wins!";

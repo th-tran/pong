@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 		playerScore02 = 0;
 		// Get the ball
 		theBall = GameObject.FindGameObjectWithTag("Ball").transform;
+		Time.timeScale = 1f;
 	}
 
 	public static void Score (string wallName) {
